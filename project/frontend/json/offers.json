@@ -1,0 +1,80 @@
+[
+    {
+        "title" : "Ищу попутчика до Киева", 
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price" : 200,
+        "driver" : "Viktor Pryadko",
+        "rating" : "4.5",
+        "languages" : "ru",
+        "image" : "https://pp.vk.me/c623625/v623625847/201dc/YqNsaJTs5HA.jpg",
+        "seats_count" : "4",
+        "wifi" : "true",
+        "ski" : "false",
+        "babyseat" : "false"
+    },
+    {
+        "title" : "Го со мной в Сумы", 
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price" : 1400,
+        "driver" : "Michael Fi",
+        "rating" : "5",
+        "languages" : "ru",
+        "image" : "https://pp.vk.me/c625216/v625216544/c940/bmwvM_BYmoo.jpg",
+        "seats_count" : "5",
+        "wifi" : "true",
+        "ski" : "false",
+        "babyseat" : "true"
+    },
+    {
+        "title" : "Поездка в Жмеренку", 
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price" : 300,
+        "driver" : "Andrew Hey",
+        "rating" : "4",
+        "languages" : "ru",
+        "image" : "https://pp.vk.me/c618327/v618327299/17f42/95WsHHj0yVE.jpg",
+        "seats_count" : "3",
+        "wifi" : "true",
+        "ski" : "false",
+        "babyseat" : "false"
+    },
+    {
+        "title" : "Хочу в Париж", 
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price" : 4000,
+        "driver" : "Vika Matyash",
+        "rating" : "1",
+        "languages" : "ru",
+        "image" : "https://pp.vk.me/c616520/v616520555/1c14e/pG2-JbGsW9A.jpg",
+        "seats_count" : "4",
+        "wifi" : "true",
+        "ski" : "false",
+        "babyseat" : "false"
+    },
+    {
+        "title" : "Не хочу в Лондон, но поеду", 
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price" : 450,
+        "driver" : "Андрей Лалалей",
+        "rating" : "3",
+        "languages" : "ru",
+        "image" : "https://pp.vk.me/c543106/v543106521/2a6/BXzQup8o5Uc.jpg",
+        "seats_count" : "5",
+        "wifi" : "true",
+        "ski" : "false",
+        "babyseat" : "true"
+    },
+    {
+        "title" : "На Берлин", 
+        "description" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "price" : 700,
+        "driver" : "Рома Телефонов",
+        "rating" : "4",
+        "languages" : "ru",
+        "image" : "https://pp.vk.me/c623919/v623919185/ce38/UpW9J5sFZvo.jpg",
+        "seats_count" : "3",
+        "wifi" : "true",
+        "ski" : "false",
+        "babyseat" : "false"
+    }
+] 

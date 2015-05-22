@@ -1,0 +1,67 @@
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+          <a ui-sref="search" class="navbar-brand">TransferMe.com</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main"  >
+          
+
+	        <ul class="nav navbar-nav navbar-right" ng-controller="authorizationCtrl">
+		        <li>
+			        <span id="menuAddPostText">
+						<a ui-sref="addadv" data-ng-if="globalUserSrv.User.isAuthorised">
+							<span style="padding-right: 5px;" class="glyphicon glyphicon-pencil"></span> {{'ADDADV' | translate}}
+						</a>
+						<span data-ng-click="showLogin()" data-ng-if="!globalUserSrv.User.isAuthorised">
+							<span style="padding-right: 5px;" class="glyphicon glyphicon-pencil"></span> {{'ADDADV' | translate}}
+						</span>
+					</span>
+		        </li> 	
+	            <li>
+		            <span ng-if="!globalUserSrv.User.isAuthorised">
+					  	<span data-ng-click="showLogin()" >
+					  		<i style="padding-right: 5px;" class="fa fa-user"></i> {{'LOGINREGISTRATION' | translate}}
+					  	</span>
+					  	<authorization-modal></authorization-modal>
+					</span>
+
+					<span ng-if="globalUserSrv.User.isAuthorised">
+					  	<span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+					  		<i ng-if="typeof(globalUserSrv.User.avatarUrl) == 'undefined'" style="padding-right: 5px;" class="fa fa-user"></i> <img ng-if="typeof(globalUserSrv.User.avatarUrl) != 'undefined'" class="avatar small" ng-src="{{globalUserSrv.User.avatarUrl}}"> {{globalUserSrv.User.firstName + " " + globalUserSrv.User.lastName}} <span class="caret"></span>
+					  	</span>
+					  	<ul class="dropdown-menu" role="menu">
+			            	<li><a ui-sref="profile" href="#">{{'PROFILE' | translate}}</a></li>
+			            	<li><a data-ng-click="logout()" ui-sref="search">{{'LOGOUT' | translate}}</a></li>
+			          	</ul>
+					</span>
+
+	            </li>
+				
+	            <li class="dropdown" ng-controller="langCtrl">
+		            <span>
+	            		<span class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" >
+					  		<i style="padding-right: 5px;" class="fa fa-user"></i>{{items[selected_item].content}} <span class="caret"></span>
+					  	</span>
+		            	<!-- <select ng-model="selected_item" ng-options="item.id as (item.name) for item in items"></select> -->
+			          	<ul class="dropdown-menu" role="menu">
+				            	<li><a href="#" ng-click="changeLanguage(items.indexOf(item))" ng-repeat="item in items">{{item.content}}</a></li>
+				        </ul>
+			        </span>
+		        </li>
+	        </ul>
+
+        </div>
+    </div>
+</div>
+<div ui-view="box@search" ></div>
+<div ui-view="addpost@addadv" ></div>
+<div ui-view="page@profile" ></div>
+<div ui-view="postview@post" ></div>
+<div class="container footer">
+
+</div>

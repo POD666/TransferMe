@@ -1,0 +1,53 @@
+<div class="modal fade" id="loginModal" tabindex="-1"  role = "dialog" aria-labelledby = "myModalLabel" aria-hidden = "false" >  
+    <div class = "modal-dialog" >  
+        <form name = "form" ng-submit = "submit()" >  
+            <div class = "modal-content" >  
+                <div class = "modal-header" >  
+                    <button type="button" class = "close"  aria-hidden="true"  ng-click="cancel()"> <span class="glyphicon glyphicon-remove"></span> </button> 
+                    <h3> </h3 >  
+                </div> 
+                <div class="modal-body"> 
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="switch-toggle switch-candy" click-off="off()" ng-click="on()"> <!-- Deleted directive switchLoginRegistration -->
+                            <input id="login" name="login" type="radio" value="login" ng-model="switchLogReg">
+                            <label for="login" onclick="" translate="LOGIN"></label>
+
+                            <input id="registration" name="login" type="radio" value="registration" ng-model="switchLogReg">
+                            <label for="registration" onclick="" translate="REGISTRATION"></label>
+
+                            <a></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                        <div ng-if="iferror" id="login-error">{{errortext}}</div>                            
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <ul class="style-1 clearfix login-fields">
+                                <li>
+                                    <input type="email" required placeholder="{{ 'EMAIL' | translate }}" pattern="[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" ng-model="params.email">
+                                </li>
+                                <li>
+                                    <input type="password" required placeholder="{{ 'PASSWORD' | translate }}" ng-model="params.pwd1">
+                                <li>
+                                <li  ng-if="switchLogReg=='registration'">  <!-- data-ng-if="switchLogReg=='registration'" -->
+                                    <input type="password" required placeholder="{{ 'REPEATPASSWORD' | translate }}" ng-model="params.pwd2">
+                                <li>
+                            </ul>
+                        </div>
+                        <div data-ng-if="switchLogReg=='login'" class="col-lg-12 col-md-12 col-sm-12">
+                            <input type="submit" class="btn btn-info btn-lg btn-login" id="submit" ng-click="login()" value="{{ 'LOGIN' | translate }}"></input >
+                        </div>                           
+                        <div data-ng-if="switchLogReg=='registration'" class="col-lg-12 col-md-12 col-sm-12">
+                            <input type="submit" class="btn btn-info btn-lg btn-login" id="submit" ng-click="registrate()" value="{{ 'REGISTRATION' | translate }}"></input >
+                        </div> 
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <a href="/accounts/google/login/" class="icon icon-cube googleplus">google+</a>
+                    </div>   
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <a href="/accounts/facebook/login/" class="icon icon-cube facebook">google+</a>
+                    </div>                        
+                </div> 
+            </div >  
+        </form> 
+    </div >  
+</div> 

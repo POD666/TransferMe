@@ -1,0 +1,36 @@
+[
+  {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+      "domain": "http://127.0.0.1:8000",
+      "name": "TranserMe"
+    }
+  },
+  {
+    "model": "socialaccount.socialapp",
+    "pk": 1,
+    "fields": {
+      "name": "Google",
+      "sites": [
+        1
+      ],
+      "secret": "EkoQENxQGVcc1uqDf52znMlC",
+      "client_id": "642706833317-3iabjugpu6grv227im5bekvn7j40svh2.apps.googleusercontent.com",
+      "provider": "google"
+    }
+  },
+  {
+    "model": "socialaccount.socialapp",
+    "pk": 2,
+    "fields": {
+      "name": "Facebook",
+      "sites": [
+        1
+      ],
+      "client_id": "388581637990401",
+      "secret": "7a1626ec3cdbfee3deff4ac289c5110a",
+      "provider": "facebook"
+    }
+  }
+]

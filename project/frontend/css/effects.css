@@ -1,0 +1,115 @@
+/* Yes/No Flip Style CSS Toggle Switch */
+input.cmn-toggle-yes-no + label {
+  padding: 2px;
+  width: 120px;
+  height: 50px;
+}
+input.cmn-toggle-yes-no + label:before,
+input.cmn-toggle-yes-no + label:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  font-family: "Roboto Slab", serif;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+}
+input.cmn-toggle-yes-no + label:before {
+  background-color: #5bc0de;
+  content: attr(data-off);
+  transition: transform 0.5s;
+  backface-visibility: hidden;
+}
+input.cmn-toggle-yes-no + label:after {
+  background-color: #8ce196;
+  content: attr(data-on);
+  transition: transform 0.5s;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+input.cmn-toggle-yes-no:checked + label:before {
+  transform: rotateY(180deg);
+}
+input.cmn-toggle-yes-no:checked + label:after {
+  transform: rotateY(0);
+}
+
+
+#cmn-toggle-7 {
+	display: none;
+}
+
+/* Input */
+
+.profile-description .style-1 {
+  list-style: none;  
+  padding-left: 0px;
+}
+
+.profile-description > .style-1 > li {
+  padding-top: 15px;
+}
+
+.style-1 input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+  width: 100%;
+}
+
+.style-1 input[type="email"], 
+.style-1 input[type="password"],
+.style-1 textarea,
+.style-1 select {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+  width: 100%;
+}
+
+.modal-body > div > div > ul.input-list {
+  padding: 0!important;
+}
+
+.style-2 input[type="text"] {
+  padding: 10px;
+  border: solid 1px #dcdcdc;
+  transition: box-shadow 0.3s, border 0.3s;
+  width: 167px;
+  height: 39px;
+}
+.style-1 input[type="text"]:focus,
+.style-1 input[type="text"].focus {
+  border: solid 1px #707070;
+  box-shadow: 0 0 5px 1px #969696;
+}
+
+ul.input-list {
+	float: left;
+	list-style: none;
+	margin: 0 -10px;
+  padding: 40px 0 10px 40px;
+}
+
+
+ul.search-input-inline > li {
+	display: inline;
+}
+
+
+/* TAGS LANG */
+.form-controll, .taginput-wrapper {
+  background-color: rgba(0,0,0,0)!important;
+}
+
+.taginput-wrapper input[type=text] {
+  background-color: #ffffff;
+}
+
+.style-1 input[type="text"]:focus, .style-1 input[type="text"].focus.ui-select-search {
+  border: solid 1px #dcdcdc!important;
+}

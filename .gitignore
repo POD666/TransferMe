@@ -1,0 +1,13 @@
+*Thumbs.db
+*.DS_Store
+/env/
+*.idea/
+*.pyc
+*.sublime-project
+*.sublime-workspace
+project/media/*
+project/db.sqlite3
+project/node_modules/*
+project/static/*
+project/frontend/bower_components/*
+/start.sh

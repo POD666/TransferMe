@@ -1,0 +1,200 @@
+<span ng-controller="searchCtrl">
+	<section style="height: 400px;" >
+		<div class="container">
+			<div class="row headerSearch">				
+				<div class="videoHeaderDiv">
+					<video class="videoShortcode" width="750" height="422" loop="1" autoplay="1" preload="auto" controls="controls" >
+						<source type="video/mp4" src="https://player.vimeo.com/external/118518515.hd.mp4?s=e0741e40d2d8b5f1f1d12a2bcb0cedce&amp;_=1">
+						<source type="video/webm" src="https://f6ca679df901af69ace6-d3d26a34307edc4f7eeb40d85a64c4a7.ssl.cf5.rackcdn.com/listify-loops-new.webm?_=1">
+					</video>
+				</div>
+				
+				<div>
+				<div class="col-lg-8 col-md-8 col-sm-8 search-box">
+				    <section>
+					  	<ul class="col-lg-10 col-md-10 col-sm-10 input-list style-1 clearfix search-input-inline search-cities">
+						    <li class="col-lg-6 col-md-6 col-sm-6 city-from-input">
+						      	<!-- <input type="text" ng-model="searchKeys.place_from" placeholder="Откуда"> -->
+						      	<ui-select ng-model="cityFrom.selected" theme="bootstrap" ng-click="searchCitiesFrom()">
+									<ui-select-match placeholder="{{'FROM' | translate}}" ng-model="cityFilterFrom">
+										{{ $select.selected.title }}
+									</ui-select-match>
+
+									<ui-select-choices repeat="c in citiesFrom | filter: $select.search">
+										{{ c.title }}
+									</ui-select-choices>
+								</ui-select>
+						    </li>
+						    <li  class="col-lg-6 col-md-6 col-sm-6 city-to-input">
+						      	<!-- <input type="text" ng-model="searchKeys.place_to" placeholder="Куда"> -->
+						      	<ui-select ng-model="cityTo.selected" theme="bootstrap" ng-click="searchCitiesTo()">
+									<ui-select-match placeholder="{{'TO' | translate}}">
+										{{ $select.selected.title }}
+									</ui-select-match>
+
+									<ui-select-choices repeat="c in citiesTo | filter: $select.search">
+										{{ c.title }}
+									</ui-select-choices>
+								</ui-select>
+						    </li>
+					  	</ul>
+					  	<div class="col-lg-2 col-md-2 col-sm-2">
+					  		<a href="#" ng-click="searchFunc()" class="btn btn-success btn-search">{{'SEARCH' | translate}}</a>
+					  	</div>
+					</section>
+					
+					<div class="col-lg-12 col-md-12 col-sm-4 full-search-button">
+							<a href="#"  click-full-search><!-- click-full-search --><!-- ng-click="toggle()" -->
+								<div style="width: 100%">
+									{{'ADVANCEDSEARCH' | translate}}
+									<br>
+									<span id="full-search-icon" class="glyphicon glyphicon-chevron-down"></span>
+								</div>
+							</a>
+					</div>
+
+					<div class="search-filters">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="money">
+								<ul class="input-list style-2 clearfix search-input-inline search-price-input">
+								    <li>
+								      	<input type="text" ng-model="searchKeys.price_from" placeholder="{{'PRICEFROM' | translate}} ($)">
+								    </li>
+								    <li>
+								      	<input type="text" ng-model="searchKeys.price_to" placeholder="{{'PRICETO' | translate}} ($)">
+								    </li>
+							  	</ul>
+						  	</div>					  	
+						  	<div  class="col-lg-12 col-md-12 col-sm-12 pass-count">
+						  		<div class="choose-filter">						  		
+							  		<select style="width: 167px" class="form-control pass-count-num" ng-model="searchKeys.passanger_count">
+							  			<option disabled selected>{{'PASSANGERSCOUNT' | translate}}</option>
+									  	<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+									</select>
+								</div>
+								<div class="search-cartype-field">	
+									<select class="form-control" ng-options="carType.content  for carType in globalSrv.carTypesSelect track by carType.id" ng-model="searchKeys.car_type">
+	                    				<option value="" disabled selected>{{'CARTYPE' | translate}}</option>
+	                				</select>							
+							  		<!-- <select style="width: 167px; margin-left: 3px;" class="form-control" ng-model="searchKeys.car_type">
+							  			<option value="" disabled selected>{{'CARTYPE' | translate}}</option>
+									  	<option>Седан</option>
+										<option>Универсал</option>
+										<option>Минивен</option>
+										<option>Микроавтобус</option>
+										<option>Автобус</option>
+									</select> -->	
+								</div>
+						  	</div>
+						  	<div  class="col-lg-12 col-md-6 col-sm-12 lang-search">
+							  	<ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" ng-disabled="disabled" style="width: 300px;" ng-click="autocompleteLangFunc()">
+								    <ui-select-match placeholder="{{'ADDLANGUAGE' | translate}}">{{$item.content}}</ui-select-match>
+								    <ui-select-choices repeat="lang in autocompleteLang | filter:$select.search">
+								      {{lang.content}}
+								    </ui-select-choices>
+								</ui-select>
+						  	</div>
+						</div>
+						
+					    <div class="col-lg-6 col-md-5 col-sm-6 datepicker-search">
+					    	{{'DATEFROM' | translate}}:
+							<div class='input-group date' id='datetimepicker1' datetimez>
+				                <input type='text' class="form-control" placeholder="{{'NOTNESSASERY' | translate}}:"  ng-model="searchKeys.date_from"/>
+				                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+				                </span>
+				            </div>
+				            <div style="padding-top: 25px;">
+								{{'DATETO' | translate}}:
+					            <div class='input-group date' id='datetimepicker2' datetimez>
+					                <input type='text' class="form-control" placeholder="{{'NOTNESSASERY' | translate}}:" ng-model="searchKeys.date_to"/>
+					                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+					                </span>
+					            </div>
+					        </div>
+					        <br>
+					        {{'OPTIONSLABEL' | translate}}<br>
+						  		<center>
+							  		<input type="checkbox" id="babycheck" class="baby-checkbox" ng-model="searchKeys.is_babysit"/>
+							  		<label for="babycheck" id="babylabel"></label>
+
+							  		<input type="checkbox" id="wificheck" class="wifi-checkbox" ng-model="searchKeys.is_wifi"/>
+							  		<label for="wificheck" id="wifilabel"></label>
+
+							  		<input type="checkbox" id="skicheck" class="ski-checkbox" ng-model="searchKeys.is_ski"/>
+							  		<label for="skicheck" id="skilabel"></label>
+							  	</center>
+				        </div>   					
+					</div>
+				</div>	
+				</div>	
+			</div>	
+			
+		</div>
+	</section>
+
+	<section class="content">
+		<div class="search-sort-filters">	
+			{{'SORTBY' | translate}}: 	
+			<a href="" style="margin-left: 10px;" ng-click="predicate = 'rating'; reverse=!reverse">
+				<span ng-if="reverse" class="glyphicon glyphicon-chevron-down"></span>
+				<span ng-if="!reverse" class="glyphicon glyphicon-chevron-up"></span> {{'RATTING' | translate}}
+			</a> -
+			<a href="" ng-click="predicate = 'price'; reverse=!reverse">
+				<span ng-if="reverse" class="glyphicon glyphicon-chevron-down"></span>
+				<span ng-if="!reverse" class="glyphicon glyphicon-chevron-up"></span>{{'PRICE' | translate}}: 
+			</a>
+		</div>
+		<div class="container offer-results">
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 offerbox" data-ng-if="offerClick.exist" ng-repeat="offer in offerClick.data | orderBy:predicate:reverse">
+					<div style="width: 100%;height:300px;background: #ffffff">
+						<div class="col-lg-8 col-md-8 col-sm-8 offerbox-icons">
+							<div class="count-of-seats">
+								{{ offer.places_count }} <span class="glyphicon glyphicon-user"></span>							
+							</div>							
+							<img ng-if="offer.is_baby_seat" src="/static/frontend/images/babyseat_black.png">
+							<img ng-if="offer.is_wifi" src="/static/frontend/images/wifi.png">
+							<img ng-if="offer.is_roof_rack" src="/static/frontend/images/ski_black.png">
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 offerbox-money">
+							<div class="offerbox-money-text">
+								{{ offer.price }}$
+							</div>
+						</div>
+						<div ng-if="globalUserSrv.User.type == 'traveller'" class="col-lg-12 col-md-12 col-sm-12 offerbox-title">
+							<a href="#" ui-sref="offer({ offerId: offer.id })">{{ offer.title }}</a>
+						</div>
+						<div ng-if="globalUserSrv.User.type == 'driver'" class="col-lg-12 col-md-12 col-sm-12 offerbox-title">
+							<a href="#" ui-sref="request({ requestId: offer.id })">{{ offer.title }}</a>
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 offerbox-description">
+							{{ offer.description }}
+						</div>
+						<div class="col-lg-12 col-md-12 col-sm-12 offerbox-user">
+							<div class="col-lg-9 col-md-9 col-sm-9">
+								<div class="col-lg-4 col-md-4 col-sm-4">
+									<img ng-src="{{ offer.user.profile.avatar_url }}">
+								</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 rating-column">
+									<div class="offerbox-name">
+										{{ offer.user.first_name }} 
+									</div>
+									<input id="offerbox-stars" type="number" class="rating" min='{{ offer.rating }}' max=5 step=0.5 data-size="xs" offer-stars>
+									<input id="offer-rating-value" type="hidden" value="{{ offer.rating }}">
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 offerbox-flags">
+								<img src="http://vignette4.wikia.nocookie.net/uncyclopedia/images/a/a5/US_flag.png">
+								<img src="http://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Russia.png">
+							</div>
+						</div>
+					</div>
+				</div>		 
+			</div>
+		</div>
+	</section>
+</span>

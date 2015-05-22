@@ -1,0 +1,59 @@
+<div class="container post-view" ng-controller="postCtrl">
+	<div class="row postview-zone">
+		<div class="col-lg-6 col-md-6 col-sm-6 postview-description">
+			<div class="col-lg-12 col-md-12 col-sm-12 postview-title">
+				<div class="price-text">
+					{{ offer.price }}$
+				</div>
+				{{ offer.title }}
+			</div>
+			<div class="col-lg-8 col-md-12 col-sm-12 postview-from-to">
+				{{ offer.place_from.title }} <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> {{ offer.place_to.title }}
+			</div>	
+			<div class="col-lg-4 col-md-12 col-sm-12 postview-price-and-filters">
+				<img ng-if="offer.is_baby_seat" src="/static/frontend/images/babyseat_black.png">
+				<img ng-if="offer.is_wifi" src="/static/frontend/images/wifi.png">
+				<img ng-if="offer.is_roof_rack" src="/static/frontend/images/ski_black.png">
+			</div>		
+			<div class="col-lg-12 col-md-12 col-sm-12 postview-text-description">
+				{{ offer.description }}
+			</div>
+			
+			<div class="col-lg-12 col-md-12 col-sm-12 postview-user-info">
+				<div class="col-lg-2 col-md-2 col-sm-2 postview-user-photo">
+					<img ng-src="{{ offer.user.profile.avatar_url }}">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 postview-rating-column">
+					<div class="postview-author-name">
+						{{ offer.user.first_name }}
+					</div>
+					<input type="number" class="rating" min=0 max=5 step=0.5 data-size="xs" comment-user-rating>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 postview-flags">
+					<img src="http://vignette4.wikia.nocookie.net/uncyclopedia/images/a/a5/US_flag.png">
+					<img src="http://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Russia.png">
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 postview-map">
+			<h1>{{ latitude }}</h1>
+			<ui-gmap-google-map center="{ latitude: 51, longitude: 31 }" zoom="8">
+
+			</ui-gmap-google-map>
+			<!-- <div class="col-lg-12 col-md-12 col-sm-12 postview-price-and-filters">
+				<img src="/static/frontend/images/babyseat_black.png">
+				<img src="/static/frontend/images/wifi.png">
+				<img src="/static/frontend/images/ski_black.png">
+				<div class="price-text">
+					200$
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 postview-from-to">
+				Киев, Украина <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> Квебек, Канада
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				
+			</div> -->
+		</div>
+	</div>
+</div>

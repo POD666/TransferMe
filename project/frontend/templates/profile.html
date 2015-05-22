@@ -1,0 +1,433 @@
+<div class="container" ng-controller="profileCtrl">
+	<div class="profile-page">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12">
+				<div class="col-lg-2 col-md-2 col-sm-2 profile-image">
+					<img ng-src="{{globalUserSrv.User.avatarUrl}}">
+				</div>
+				<div class="col-lg-10 col-md-10 col-sm-10 profile-title">
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						{{globalUserSrv.User.firstName + " " + globalUserSrv.User.lastName}}<span ng-if="globalUserSrv.User.age">, {{globalUserSrv.User.age}} </span> 
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="profile-location">
+							<i class="fa fa-map-marker"></i> {{globalUserSrv.User.location}}
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 profile-stars">
+						<div class="profile-flags">
+							<img src="http://vignette4.wikia.nocookie.net/uncyclopedia/images/a/a5/US_flag.png">
+							<img src="http://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Russia.png">
+						</div>						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row profile-tabs">
+			<tabset justified="true">
+			    <tab heading="{{'INFO' | translate}}">			    	
+			    	<div class="profile-description">
+			    		<div class="row">
+			    			<div class="col-lg-12 col-md-12 col-sm-12">
+				    			{{globalUserSrv.User.description}}
+				    		</div>
+				    	</div>
+				    	<div class="row profile-rating">
+				    		<div class="col-lg-12 col-md-12 col-sm-12">
+					    		<div class="col-lg-6 col-md-6 col-sm-6">
+					    			{{'DRIVER' | translate}}
+					    			<input type="number" class="rating" min='0' max=5 step=0.5 data-size="sm" profile-rating>
+					    		</div>
+					    		<div class="col-lg-6 col-md-6 col-sm-6">
+					    			{{'TRAVALLER' | translate}}
+					    			<input type="number" class="rating" min='0' max=5 step=0.5 data-size="sm" profile-rating>
+					    		</div>
+			    			</div>	
+			    		</div>	    		
+			    	</div>
+
+			    	<!-- Inside description tabs -->
+			    	<tabset justified="true">
+			    		<tab heading="Водитель">
+			    			<div class="container profile-offers">
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-4" ng-repeat="offer in globalUserSrv.User.profileOffers">
+										<div class="profile-offerbox" style="width: 100%;height:300px;background: #ffffff;margin-top: 20px;">
+											<div class="col-lg-8 col-md-8 col-sm-8 offerbox-icons">
+												<div class="count-of-seats">
+													{{ offer.places_count }} <span class="glyphicon glyphicon-user"></span>							
+												</div>							
+												<img ng-if="offer.is_baby_seat" src="/static/frontend/images/babyseat_black.png">
+												<img ng-if="offer.is_wifi" src="/static/frontend/images/wifi.png">
+												<img ng-if="offer.is_roof_rack" src="/static/frontend/images/ski_black.png">
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4 offerbox-money">
+												<div style="padding: 0;" class="col-lg-7 col-md-7 col-sm-7">
+													<a href="#/offer/{{offer.id}}/edit"><i style="float: right;" class="fa fa-pencil"></i></a>
+												</div>
+												<div class="col-lg-3 col-md-3 col-sm-3">
+													<a href="#" ng-click="delete(offer.id, 'offer')"><i class="fa fa-times"></i></a>
+												</div>
+												<div class="col-lg-12 col-md-12 col-sm-12">
+													<div class="offerbox-money-text">
+														{{ offer.price }}$
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12 offerbox-title">
+												<a href="#" ui-sref="offer({ offerId: offer.id })">{{ offer.title }}</a>
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12 offerbox-description">
+												{{ offer.description }}
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12 offerbox-user">
+												<div class="col-lg-9 col-md-9 col-sm-9">
+													<div class="col-lg-4 col-md-4 col-sm-4">
+														<img ng-src="{{ offer.user.profile.avatar_url }}">
+													</div>
+													<div class="col-lg-8 col-md-8 col-sm-8 rating-column">
+														<div class="offerbox-name">
+															{{ offer.user.first_name }} 
+														</div>
+														<input id="offerbox-stars" type="number" class="rating" min='{{ offer.rating }}' max=5 step=0.5 data-size="xs" offer-stars>
+														<input id="offer-rating-value" type="hidden" value="{{ offer.rating }}">
+													</div>
+												</div>
+												<div class="col-lg-3 col-md-3 col-sm-3 profile-offerbox-flags">
+													<img src="http://vignette4.wikia.nocookie.net/uncyclopedia/images/a/a5/US_flag.png">
+													<img src="http://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Russia.png">
+												</div>
+											</div>
+										</div>
+									</div>		 
+								</div>
+							</div>	
+			    		</tab>
+			    		<tab heading="Путешественник">	
+			    			<div class="container profile-offers">
+								<div class="row">
+									<div class="col-lg-4 col-md-4 col-sm-4" ng-repeat="request in globalUserSrv.User.profileRequests">
+										<div class="profile-offerbox" style="width: 100%;height:300px;background: #ffffff;margin-top: 20px;">
+											<div class="col-lg-8 col-md-8 col-sm-8 offerbox-icons">
+												<div class="count-of-seats">
+													{{ request.places_count }} <span class="glyphicon glyphicon-user"></span>							
+												</div>							
+												<img ng-if="request.is_baby_seat" src="/static/frontend/images/babyseat_black.png">
+												<img ng-if="request.is_wifi" src="/static/frontend/images/wifi.png">
+												<img ng-if="request.is_roof_rack" src="/static/frontend/images/ski_black.png">
+											</div>
+											<div class="col-lg-4 col-md-4 col-sm-4 offerbox-money">
+												<div style="padding: 0;" class="col-lg-7 col-md-7 col-sm-7">
+													<a href="#/request/{{request.id}}/edit"><i style="float: right;" class="fa fa-pencil"></i></a>
+												</div>
+												<div class="col-lg-3 col-md-3 col-sm-3">
+													<a href="#" ng-click="delete(offer.id, 'request')"><i class="fa fa-times"></i></a>
+												</div>
+												<div class="col-lg-12 col-md-12 col-sm-12">
+													<div class="offerbox-money-text">
+														{{ request.price }}$
+													</div>
+												</div>
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12 offerbox-title">
+												<a href="#" ui-sref="request({ requestId: request.id })">{{ request.title }}</a>
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12 offerbox-description">
+												{{ request.description }}
+											</div>
+											<div class="col-lg-12 col-md-12 col-sm-12 offerbox-user">
+												<div class="col-lg-9 col-md-9 col-sm-9">
+													<div class="col-lg-4 col-md-4 col-sm-4">
+														<img ng-src="{{ request.user.profile.avatar_url }}">
+													</div>
+													<div class="col-lg-8 col-md-8 col-sm-8 rating-column">
+														<div class="offerbox-name">
+															{{ request.user.first_name }} 
+														</div>
+														<input id="offerbox-stars" type="number" class="rating" min='{{ request.rating }}' max=5 step=0.5 data-size="xs" offer-stars>
+														<input id="offer-rating-value" type="hidden" value="{{ request.rating }}">
+													</div>
+												</div>
+												<div class="col-lg-3 col-md-3 col-sm-3 profile-offerbox-flags">
+													<img src="http://vignette4.wikia.nocookie.net/uncyclopedia/images/a/a5/US_flag.png">
+													<img src="http://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Russia.png">
+												</div>
+											</div>
+										</div>
+									</div>		
+								</div>
+							</div>
+			    		</tab>
+			    	</tabset>
+
+			    </tab>
+			    <tab heading="{{'GARAGE' | translate}}">
+			    	<div class="profile-garage">
+			    		<div class="col-lg-12 col-md-12 col-sm-12">
+			    			<button class="btn btn-success btn-md" id="submit" profile-add-car><span class='glyphicon glyphicon-plus'></span> Добавить машину</button >
+		    				<div class="profile-add-car">
+					            <div class="col-lg-12 col-md-12 col-sm-12">
+					                <div class="row">
+					                    <div class="col-lg-12 col-md-12 col-sm-12">
+					                        <p class="addpost-filters-title">Фото машины:</p> 
+					                        <input type="file" name="img" multiple ng-model="addAdvFields.photo">                
+					                    </div>
+					                </div>
+					                <br>
+					                <ul class="row style-1">
+								    		<li class="col-lg-6 col-md-6 col-sm-6">
+					                        	<input type="text" required placeholder="Бренд" ng-model="addAdvFields.brand"> 
+					                    	</li>
+						                    <li class="col-lg-6 col-md-6 col-sm-6">
+						                        <input type="text" required placeholder="Модель" ng-model="addAdvFields.model">                
+						                    </li>
+					                </ul>
+					                <br>
+					                <div class="row">
+					                    <div class="col-lg-6 col-md-6 col-sm-6">
+					                        <select class="form-control" ng-model="addAdvFields.car_type">
+					                            <option value="" disabled selected>{{'CARTYPE' | translate}}</option>
+					                            <option>Седан</option>
+					                            <option>Универсал</option>
+					                            <option>Минивен</option>
+					                            <option>Микроавтобус</option>
+					                            <option>Автобус</option>
+					                        </select>                 
+					                    </div>
+					                    <div class="col-lg-6 col-md-6 col-sm-6">
+					                        <select class="form-control pass-count-num" ng-model="addAdvFields.number_of_people">
+					                            <option value="" disabled selected>{{'PASSANGERSCOUNT' | translate}}</option>
+					                            <option>1</option>
+					                            <option>2</option>
+					                            <option>3</option>
+					                            <option>4</option>
+					                            <option>5</option>
+					                        </select>                
+					                    </div>
+					                </div>
+					                <div class="row profile-add-car-filters">
+					                	<div class="col-lg-12 col-md-12 col-sm-12">
+							                <p class="addpost-filters-title">{{'OPTIONSLABEL' | translate}}</p>
+							                <input type="checkbox" id="babycheck" class="baby-checkbox baby-checkbox-black" ng-model="addAdvFields.is_baby_seat"/>
+							                <label for="babycheck" id="babylabel"></label>
+
+							                <input type="checkbox" id="wificheck" class="wifi-checkbox" ng-model="addAdvFields.is_wifi"/>
+							                <label for="wificheck" id="wifilabel"></label>
+
+							                <input type="checkbox" id="skicheck" class="ski-checkbox ski-checkbox-black" ng-model="addAdvFields.is_roof_rack"/>
+							                <label for="skicheck" id="skilabel"></label>
+							            </div>
+					                </div>
+					                <div class="row profile-car-save">
+					                	<button class="btn btn-success btn-md" id="submit" profile-add-car>Сохарнить</button >
+					                </div>
+					            </div>            
+					        </div>
+			    		</div>
+			    		<div class="col-lg-12 col-md-12 col-sm-12 cars-block">
+			    			<div class="col-lg-4 col-md-4 col-sm-4">
+			    				<div class="row profile-car-block">
+			    					<div class="col-lg-12 col-md-12 col-sm-12 profile-car-block-image">
+			    						<img src="http://www.opel.ru/content/dam/Opel/Europe/master/hq/en/01_Vehicles/OPC_Group/02_Highlights/MY_13_5/Opel_OPC_ExteriorView_Astra_768x432_asopc135_e02_001.jpg">
+			    					</div>
+			    					<div class="col-lg-12 col-md-12 col-sm-12 profile-car-block-info">
+				    					<div>Opel Astra GL4000</div>
+				    					<div>Универсал</div>
+				    				</div>
+				    				<div class="col-lg-12 col-md-12 col-sm-12 profile-car-block-filters">
+				    					<img src="/static/frontend/images/babyseat_black.png">
+										<img src="/static/frontend/images/wifi.png">
+										<img src="/static/frontend/images/ski_black.png">
+				    				</div>
+			    				</div>
+			    			</div>
+			    			<div class="col-lg-4 col-md-4 col-sm-4">
+			    				<div class="row profile-car-block">
+			    					<div class="col-lg-12 col-md-12 col-sm-12 profile-car-block-image">
+			    						<img src="http://www.opelukraine.com/content/dam/Opel/Europe/master/hq/en/01_Vehicles/01_PassengerCars/Cascada/02_Features/MY135/768x432/Opel_Cascada_Driving_Dynamics_768x432_ca135_e01_051.jpg">
+			    					</div>
+			    					<div class="col-lg-12 col-md-12 col-sm-12 profile-car-block-info">
+				    					<div>Opel Astra GL4000</div>
+				    					<div>Седан</div>
+				    				</div>
+				    				<div class="col-lg-12 col-md-12 col-sm-12 profile-car-block-filters">
+				    					<img src="/static/frontend/images/babyseat_black.png">
+										<img src="/static/frontend/images/wifi.png">
+										<img src="/static/frontend/images/ski_black.png">
+				    				</div>
+			    				</div>
+			    			</div>
+			    			<div class="col-lg-4 col-md-4 col-sm-4">
+			    				<div class="row profile-car-block">
+			    					<div class="col-lg-12 col-md-12 col-sm-12 profile-car-block-image">
+			    						<img src="http://www.opel.ie/content/dam/Opel/Europe/master/hq/en/01_Vehicles/ecoFLEX_Group/04_Models/MY135/768x432/Opel_ecoFLEX_Astra_Hatchback_768x432_1.jpg">
+			    					</div>
+			    					<div class="col-lg-12 col-md-12 col-sm-12 profile-car-block-info">
+				    					<div>Opel Astra GL4000</div>
+				    					<div>Автобус</div>
+				    				</div>
+				    				<div class="col-lg-12 col-md-12 col-sm-12 profile-car-block-filters">
+				    					<img src="/static/frontend/images/babyseat_black.png">
+										<img src="/static/frontend/images/wifi.png">
+										<img src="/static/frontend/images/ski_black.png">
+				    				</div>
+			    				</div>
+			    			</div>
+			    		</div>
+			    	</div>
+			    </tab>
+			    <tab heading="Мои заказы (1)">
+			    	<div class="container profile-offers">
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-4 profile-offerbox">
+								<div style="width: 100%;height:300px;background: #ffffff">
+									<div class="col-lg-8 col-md-8 col-sm-8 offerbox-icons">
+										<div class="count-of-seats">
+											4 <span class="glyphicon glyphicon-user"></span>							
+										</div>							
+										<img src="/static/frontend/images/babyseat_black.png">
+										<img src="/static/frontend/images/wifi.png">
+										<img src="/static/frontend/images/ski_black.png">
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4 offerbox-money">
+										<div class="offerbox-money-text">
+											200$
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 offerbox-title">
+										<a href="#" ui-sref="post({ postId: offer.id })">Title</a>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 offerbox-description">
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 offerbox-user">
+										<div class="col-lg-9 col-md-9 col-sm-9">
+											<div class="col-lg-4 col-md-4 col-sm-4">
+												<img ng-src="https://pp.vk.me/c618327/v618327299/17f3f/p69gjesgYBs.jpg">
+											</div>
+											<div class="col-lg-8 col-md-8 col-sm-8 rating-column">
+												<div class="offerbox-name">
+													Сергей 
+												</div>
+												<input id="offerbox-stars" type="number" class="rating" min='{{ offer.rating }}' max=5 step=0.5 data-size="xs" offer-stars>
+												<input id="offer-rating-value" type="hidden" value="{{ offer.rating }}">
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-3 offerbox-flags">
+											<img src="http://vignette4.wikia.nocookie.net/uncyclopedia/images/a/a5/US_flag.png">
+											<img src="http://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Russia.png">
+										</div>
+									</div>
+								</div>
+							</div>		 
+						</div>
+					</div>
+			    </tab>
+			    <tab heading="{{'SETTINGS' | translate}}">
+			    	<div class="profile-description">
+			    		<ul class="style-1 clearfix">
+			    			<li class="row">
+				    			<div class="switch-toggle switch-candy" click-off="off()" ng-click="on()"> <!-- Deleted directive switchLoginRegistration -->
+		                            <input id="traveller" name="traveller" type="radio" value="traveller" ng-model="globalUserSrv.User.type">
+		                            <label for="traveller" onclick="">{{'IAM' | translate}} {{'TRAVALLER' | translate}}</label>
+
+		                            <input id="driver" name="driver" type="radio" value="driver" ng-model="globalUserSrv.User.type">
+		                            <label for="driver" onclick="">{{'IAM' | translate}} {{'DRIVER' | translate}}</label>
+
+		                            <a></a>
+		                        </div>
+			    			</li>
+        					<li class="row">
+				    			<div class="col-lg-6 col-md-6 col-sm-6">
+				    				<input style="width: 100%" type="text" required placeholder="{{'NAME' | translate}}" ng-model="globalUserSrv.User.firstName">
+				    			</div>
+				    			<div class="col-lg-6 col-md-6 col-sm-6">
+				    				<input style="width: 100%" type="text" required placeholder="{{'SURNAME' | translate}}" ng-model="globalUserSrv.User.lastName">
+				    			</div>
+				    		</li>
+				    		<li class="row">
+				    			<div class="col-lg-6 col-md-6 col-sm-6">
+				    				<input style="width: 100%" type="text" required placeholder="{{'LOCATION' | translate}}" ng-model="globalUserSrv.User.location">
+				    			</div>
+				    			<div class="col-lg-6 col-md-6 col-sm-6 profile-age">
+				    				<!-- <input style="width: 100%" type="text" required placeholder="{{'AGE' | translate}}" ng-model="globalUserSrv.User.age"> -->
+				    				<div class='input-group date' id='datetimepickerProfileAge' datetimez>
+						                <input id="dob_inp" type='text' class="form-control" placeholder="{{'NOTNESSASERY' | translate}}:"  ng-model="globalUserSrv.User.dob"/>
+						                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+						                </span>
+						            </div>
+				    			</div>
+				    		</li>
+				    		<li class="row">
+				    			<div class="col-lg-12 col-md-12 col-sm-12 profile-languages">
+				    				{{'LANGUAGES' | translate}}:
+								  	<ui-select multiple theme="bootstrap" ng-model="profileLang" ng-disabled="disabled" ng-click="autocompleteLangProfileFunc()">
+									    <ui-select-match placeholder="{{'ADDLANGUAGE' | translate}}">
+									    	{{$item.content}}
+									    </ui-select-match>									    
+									    <ui-select-choices repeat="lang in globalUserSrv.languages | filter:$select.search">
+									      {{lang.content}}
+									    </ui-select-choices>
+									</ui-select>
+				    			</div>
+				    		</li>
+				    		<li class="row">
+				    			<div class="col-lg-12 col-md-12 col-sm-12">
+				    				<textarea rows="10" cols="45" required placeholder="{{'DESCRIPTION' | translate}}" ng-model="globalUserSrv.User.description"></textarea>
+				    			</div>
+				    		</li>
+				    		<li class="row">
+				    			<div ng-if="itsError1 || itsError2" class="col-lg-12 col-md-12 col-sm-12">
+				    				<p class="bg-danger"><i class="fa fa-times"></i> Правильно заполните поля</p>
+				    			</div>
+				    			<div ng-if="noError1 && noError2" class="col-lg-12 col-md-12 col-sm-12">
+				    				<p class="bg-success"><i class="fa fa-check"></i> Все данные успешно сохранены</p>
+				    			</div>
+				    		</li>
+				    		<li class="row">
+				    			<input type="submit" class="btn btn-success btn-lg btn-save-settings" id="submit" value="{{'SAVE' | translate}}" ng-click="save()"></input >
+				    		</li>
+			    		</ul>
+			    	</div>
+			    </tab>
+			</tabset>
+		</div>
+	</div>
+	<div class="profile-comments">
+		<div class="col-lg-12 col-md-12 col-sm-12 comment-section">
+			<div class="col-lg-9 col-md-9 col-sm-9 comment-title">
+				Заголовок
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 comment-stars">
+				<input type="number" class="rating" min='0' max=5 step=0.5 data-size="sm" comment-rating>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 comment-description">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 comment-author">
+				<div class="col-lg-1 col-md-2 col-sm-2">
+					<img ng-src="https://pp.vk.me/c618327/v618327299/17f3f/p69gjesgYBs.jpg">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 comment-rating-column">
+					<div class="comment-author-name">
+						Андрей Даценко
+					</div>
+					<input type="number" class="rating" min=0 max=5 step=0.5 data-size="xs" comment-user-rating>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+	
+
+
+
+
+
+
+
+
+
+

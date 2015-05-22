@@ -1,0 +1,168 @@
+<div class="container addpost" ng-controller="addAdvCtrl">
+    <ul class="style-1 clearfix">
+        <li class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <input style="width: 100%" type="text" required placeholder="{{'HEADER' | translate}}" ng-model="addAdvFields.title">
+            </div>
+        </li>
+        <li class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <input type="text" required placeholder="{{'PRICE' | translate}}" ng-model="addAdvFields.price">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <select style="width: 167px" class="form-control pass-count-num" ng-model="addAdvFields.currency">
+                    <option selected>$</option>
+                    <option>EUR</option>
+                    <option>UAH</option>
+                    <option>RUB</option>
+                </select>
+            </div>
+        </li>
+        <li class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 city-from-input">
+                <ui-select ng-model="cityFrom.selected" theme="bootstrap" ng-click="searchCitiesFrom()">
+                    <ui-select-match placeholder="{{'FROM' | translate}}" ng-model="cityFilterFrom">
+                        {{ $select.selected.title }}
+                    </ui-select-match>
+
+                    <ui-select-choices repeat="c in citiesFrom | filter: $select.search">
+                        {{ c.title }}
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+            <div  class="col-lg-6 col-md-6 col-sm-6 city-to-input">
+                <ui-select ng-model="cityTo.selected" theme="bootstrap" ng-click="searchCitiesTo()">
+                    <ui-select-match placeholder="{{'TO' | translate}}">
+                        {{ $select.selected.title }}
+                    </ui-select-match>
+
+                    <ui-select-choices repeat="c in citiesTo | filter: $select.search">
+                        {{ c.title }}
+                    </ui-select-choices>
+                </ui-select>
+            </div>
+        </li>
+        <li class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class='input-group date' id='add-post-date-picker' datetimez>
+                    <input type='text' id='date_from' class="form-control" placeholder="{{'DATEFROM' | translate}}"  ng-model="addAdvFields.date_from" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class='input-group date' id='add-post-date-picker' datetimez>
+                    <input type='text' id='date_to' class="form-control" placeholder="{{'DATETO' | translate}}" ng-model="addAdvFields.date_to"/>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </li>
+        <li class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <textarea rows="10" cols="45" required placeholder="{{'DESCRIPTION' | translate}}" ng-model="addAdvFields.description"></textarea>
+            </div>
+        </li>   
+        <div class="row" ng-if="globalUserSrv.User.type === 'traveller'">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <select class="form-control" ng-options="carType.content  for carType in globalSrv.carTypesSelect track by carType.id" ng-model="addAdvFields.car_type">
+                    <option value="" disabled selected>{{'CARTYPE' | translate}}</option>
+                </select>                 
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <select class="form-control pass-count-num" ng-model="addAdvFields.places_count">
+                    <option value="" disabled selected>{{'PASSANGERSCOUNT' | translate}}</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>                
+            </div>
+        </div>
+        <li class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <p class="addpost-filters-title">{{'OPTIONSLABEL' | translate}}</p>
+                <input type="checkbox" id="babycheck" class="baby-checkbox baby-checkbox-black" ng-model="addAdvFields.is_baby_seat"/>
+                <label for="babycheck" id="babylabel"></label>
+
+                <input type="checkbox" id="wificheck" class="wifi-checkbox" ng-model="addAdvFields.is_wifi"/>
+                <label for="wificheck" id="wifilabel"></label>
+
+                <input type="checkbox" id="skicheck" class="ski-checkbox ski-checkbox-black" ng-model="addAdvFields.is_roof_rack"/>
+                <label for="skicheck" id="skilabel"></label>
+            </div>
+        </li>
+        <li class="row" ng-if="globalUserSrv.User.type !== 'traveller'">
+            <div class="col-lg-3 col-md-3 col-sm-3">
+                <button class="btn btn-info btn-md" id="submit" add-car><span class='glyphicon glyphicon-plus'></span> Добавить машину</button >
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <button class="btn btn-info btn-md" id="submit"><span class='glyphicon glyphicon-ok'></span> Добавить машину из гаража</button >
+            </div>
+        </li>
+        <li class="row add-car-post">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <p class="addpost-filters-title">Фото машины:</p> 
+                        <input type="file" name="img" multiple ng-model="addAdvFields.photo">                
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" required placeholder="Бренд" ng-model="addAdvFields.brand"> 
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <input type="text" required placeholder="Модель" ng-model="addAdvFields.model">                
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <select class="form-control" ng-options="carType.content  for carType in globalSrv.carTypesSelect track by carType.id" ng-model="addAdvFields.car_type">
+                            <option value="" disabled selected>{{'CARTYPE' | translate}}</option>
+                        </select>
+                                     
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <select class="form-control pass-count-num" ng-model="addAdvFields.number_of_people">
+                            <option value="" disabled selected>{{'PASSANGERSCOUNT' | translate}}</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>                
+                    </div>
+                </div>
+            </div>
+            
+        </li>
+        <li class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 post-errors">
+                <div ng-if="itsError" class="col-lg-12 col-md-12 col-sm-12">
+                    <p class="bg-danger"><i class="fa fa-times"></i> Правильно заполните поля</p>
+                </div>
+                <div ng-if="noError" class="col-lg-12 col-md-12 col-sm-12">
+                    <p class="bg-success"><i class="fa fa-check"></i> Все данные успешно сохранены</p>
+                </div>
+            </div>
+        </li>
+
+        <li class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <button style="width: 100%;" class="btn btn-success btn-lg" ng-click="post()">{{'POST' | translate}}</button>
+            </div>
+        </li>
+    </ul>
+
+</div>
+
+
+
+
+
+
+

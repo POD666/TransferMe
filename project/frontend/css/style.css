@@ -1,0 +1,1091 @@
+@media (min-width: 768px) {
+	.navbar > .container {
+	    margin-top: 7px;
+	}
+
+	.menuAd {
+		margin-top: -7px;
+		padding-right: 40px;
+	}
+
+	.container {
+		margin-top: 70px;
+	}
+}
+
+body {
+	background-color: #F0F3F6!important;
+}
+
+.navbar-default{
+	background-color: #264C77;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	background-color: #2C5889;
+}
+
+.menuAd > ul > li{
+	display: inline;
+}
+
+.menuAd > ul > li > a {	
+	padding: 6px 13px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.menuAd > ul > li > a:hover, .menuAd > ul > li > a:focus{
+	background-color: #2C5889;
+}
+
+#menuAddPostText > a{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#menuAddTypeOfPost {
+	padding-top: 5px;
+	padding-left: 0px;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	background-color: #2C5889;
+}
+
+.dropdown-menu {
+	background-color: #2C5889;	
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+	background-color: #366599;
+}
+
+
+.entry-cover .cover-wrapper, .listing-cover .cover-wrapper {
+	position: relative;
+z-index: 10;
+}
+
+.videoHeaderDiv {
+	position: absolute; 
+	top: 0px; 
+	left: 0px; 
+	bottom: 0px; 
+	right: 0px; 
+	overflow: hidden; 
+	-webkit-background-size: cover; 
+	background-size: cover; 
+	background-position: 50% 50%; 
+	background-repeat: no-repeat; 
+	height: 472px;
+}
+
+.videoShortcode {
+	margin: auto; 
+	position: absolute; 
+	top: 50%; 
+	left: 50%; 
+	-webkit-transform: translate(-50%, -50%); 
+	transform: translate(-50%, -50%); 
+	width: 100%; 
+	height: auto; 
+	visibility: visible;
+}
+
+.navbar {
+	font-size: 16px;
+}
+
+.switch-toggle {
+	width: 200px;
+	height: 43px;
+	margin-left: 50px;
+	float: right;
+}
+
+.headerSearch {
+	padding-top: 120px;
+	padding-bottom: 120px;
+	width: 1270px;
+}
+
+.btn-search {
+	width: 100%;
+	height: 40px;
+	margin-top: 40px;
+}
+
+.navbar-right{
+	margin-top: -5px;
+}
+
+.navbar-brand {
+	padding-top: 5px;
+}
+
+.navbar-nav > li > span {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+}
+
+.navbar-nav > li > span > span {
+	cursor: pointer;
+}
+
+.navbar-nav > li > span:hover {
+	background-color: #2C5889;
+}
+
+.search-box {
+	width: 65%;
+	height: 170px;
+	background-color: rgba(0,0,0,0.4);
+	margin: 0 0 0 13.5%;
+}
+
+#datetimepicker1 {
+	width: 300px;
+}
+
+#datetimepicker2 {
+	width: 300px;
+}
+
+
+.search-price-input {
+  padding: 30px 0px 20px 30px!important;
+}
+
+.form-control {
+	width: 100%;
+}
+
+.pass-count, .car-type {
+	padding: 25px 5px 10px 19px;
+}
+
+.baby-checkbox, .wifi-checkbox, .ski-checkbox {
+    display:none;
+}
+
+.baby-checkbox + label{
+    background:url('/static/frontend/images/babyseat.png') 50% 50% no-repeat;
+    opacity: 0.3;
+    background-size: 80%;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    cursor: pointer;
+}
+
+.baby-checkbox-black + label{
+	background:url('/static/frontend/images/babyseat_black.png') 50% 50% no-repeat;
+	opacity: 0.3;
+    background-size: 80%;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    cursor: pointer;
+}
+
+.baby-checkbox:checked + label{
+    background:url('/static/frontend/images/babyseat.png') 50% 50% no-repeat;
+    background-size: 80%;
+    opacity: 1;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+.baby-checkbox-black:checked + label{
+	background:url('/static/frontend/images/babyseat_black.png') 50% 50% no-repeat;
+	background-size: 80%;
+    opacity: 1;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+#babylabel {
+	margin-right: 15px;
+}
+
+.wifi-checkbox + label{
+    background:url('/static/frontend/images/wifi.png') 50% 50% no-repeat;
+    opacity: 0.3;
+    background-size: 90%;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    cursor: pointer;
+}
+
+.wifi-checkbox:checked + label{
+    background:url('/static/frontend/images/wifi.png') 50% 50% no-repeat;
+    background-size: 90%;
+    opacity: 1;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+#wifilabel {
+	margin-right: 15px;
+}
+
+.ski-checkbox + label{
+    background:url('/static/frontend/images/ski.png') 50% 50% no-repeat;
+    opacity: 0.3;
+    background-size: 90%;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    cursor: pointer;
+}
+
+.ski-checkbox-black + label{
+    background:url('/static/frontend/images/ski_black.png') 50% 50% no-repeat;
+    opacity: 0.3;
+    background-size: 90%;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+    cursor: pointer;
+}
+
+.ski-checkbox:checked + label{
+    background:url('/static/frontend/images/ski.png') 50% 50% no-repeat;
+    background-size: 90%;
+    opacity: 1;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+.ski-checkbox-black:checked + label{
+    background:url('/static/frontend/images/ski_black.png') 50% 50% no-repeat;
+    background-size: 90%;
+    opacity: 1;
+    height: 56px;
+    width: 56px;
+    display:inline-block;
+    padding: 0 0 0 0px;
+}
+
+
+#skilabel {
+	margin-right: 15px;
+}
+
+.main-search-line {
+	margin: 0 0 0 16.6666%;
+}
+
+.full-search-button {
+	text-align: center; 
+}
+
+.full-search-button > a {
+	text-decoration: none;
+	font-style: none;
+	color: #ffffff;	
+	width: 150px;
+	height: auto;
+}
+
+.search-filters {
+	display: none;
+}
+
+.datepicker-search {
+	padding-top: 9px;
+}
+
+.lang-search {
+	padding-top: 20px;
+
+	margin-left: 5px;
+}
+
+.choose-filter {
+	float: left;
+	padding-right: 3px;
+	width: 167px;
+}
+
+.content > .container {
+	margin-top: 50px;
+}
+
+/*======== Offer Box =========*/
+
+.offerbox:hover {
+	box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+	-webkit-transform: scale(1.025);
+  	transform: scale(1.025);
+  	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: box-shadow, transform;
+	transition-property: box-shadow, transform;
+}
+
+.offerbox-money {
+	padding-right: 0;
+	padding-top: 15px;
+}
+
+.offerbox-money-text {
+	height: 40px;
+	padding: 4px 20px 4px 20px;
+	font-size: 22px;
+	color: green;
+	float: right;
+	background: rgba(0,0,0,0.032);
+}
+
+.offerbox-icons > img {
+	width: 27px;
+	margin-left: 10px;
+}
+
+.offerbox-icons {
+	padding: 20px 10px 10px 20px;
+}
+
+.offerbox-title {
+	padding: 0px 15px 10px 15px;
+}
+
+.offerbox-title > a {
+	font-size: 23px;
+	color: #264C77;
+	text-decoration: none;	
+}
+
+.offerbox-description {
+	color: #6E6E6E;
+}
+
+.offerbox-user > div > div > img {
+	width: 50px;
+	border-radius: 40;
+}
+
+.offerbox-user {
+	position:absolute;                  
+   	bottom: 15px;                           
+   	left:0;  
+}
+
+.rating-xs {
+	font-size: 1.3em;
+}
+
+.caption > .label {
+	font-size: 110%;
+}
+
+.rating-column {
+	padding: 0;
+}
+
+.offerbox-name {
+	color: #4E5D6C;
+	font-size: 17px;
+}
+
+.offerbox-flags {
+	padding-left: 0px;
+	bottom: 0;
+}
+
+.offerbox-flags > img {
+	width: 30px;
+	border: 1px solid #3e3e3e;
+	margin-right: 5px;
+	margin-top: 25px;
+	height: 20px
+}
+
+.count-of-seats {
+	font-size: 22px;
+	width: 50px;
+	float: left;
+	color: #000000;
+}
+
+/*======== Offer Box =========END*/
+
+
+/*======== Login Modal =========*/
+
+.modal-content {
+	background-color: #ffffff;
+}
+
+.modal-header {
+	background-color: #2C5889;
+}
+
+.modal-body {
+	height: 330px;
+}
+
+#login-error {
+	padding: 10px 0 30px 0;
+	color: red;
+}
+
+.login-fields {
+	padding: 0;
+	list-style: none;
+}
+
+.btn-login {
+	width: 100%;
+}
+
+.switch-candy a {
+	background-color: #5cb85c!important;
+	background-image: none;
+}
+
+.switch-candy input:checked + label {
+	color: #FFF;
+	text-shadow: none;
+}
+
+.switch-toggle {
+	width: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	float: none;
+	margin-bottom: 40px;
+}
+
+.confirm-password {
+	display: none;
+}
+/*======== Login Modal =========END*/
+
+/*======== Search Sort Filters =========*/
+
+.search-sort-filters {
+	width: 1130px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 20px;
+	color: #264C77;
+	font-size: 18px;
+}
+
+.search-sort-filters > a {
+	color: #5CB85C;
+}
+
+.search-cartype-field {
+	float: left;
+	margin-left: 3px;
+	width: 167px;
+}
+/*======== Search Sort Filters =========END*/
+
+
+/*======== Add Post Page =========*/
+
+.addpost {
+	width: 800px;
+	background: #ffffff;
+	margin-top: 50px;
+}
+
+.addpost > .style-1 {
+	list-style: none;
+	padding-top: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.addpost > .style-1 > li {
+	padding: 10px;
+}
+
+.addpost-filters-title {
+	font-size: 16px;
+	color: #000000;
+}
+
+.add-car-post {
+	display: none;
+}
+
+.addpost > .style-1 input[type="text"] {
+	width: 100%;
+}
+
+.add-post-date-picker {
+	width: 100%;
+}
+
+.city-from-input > div.dropdown {
+	border: solid 1px #dcdcdc;
+}
+
+.city-from-input > div.ui-select-container.ui-select-bootstrap.dropdown > div.ui-select-match.ng-valid > span{
+	border: none;
+}
+
+.city-to-input > div.dropdown {
+	border: solid 1px #dcdcdc;
+}
+
+.city-to-input > div.ui-select-container.ui-select-bootstrap.dropdown > div.ui-select-match.ng-valid > span{
+	border: none;
+}
+
+.btn.btn-default.form-control.ui-select-toggle {
+	padding: 8px 10px;
+	border: none;
+}
+
+/*======== Add Post Page =========END*/
+
+/*======== Profile Page =========*/
+.profile-page {
+	background: #ffffff;
+	margin-top: 30px;
+}
+
+.profile-image > img {
+	width: 150px;
+	height: 150px;
+	border: 3px solid #2B3E50;
+	margin-top: -40px;
+}
+
+.profile-tabs {
+	padding: 0 15px 0 25px;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	color: #ffffff;
+	background-color: #5bc0de;
+	border: none;
+}
+
+.nav-tabs.nav-justified > .active > a, .nav-tabs.nav-justified > .active > a:hover, .nav-tabs.nav-justified > .active > a:focus {
+	border-bottom-color: #5bc0de;
+	border: none;
+	border-bottom: 1px solid #5bc0de;
+}
+
+
+.nav > li > a:hover, .nav > li > a:focus {
+	background-color: #A5DDED;
+}
+
+.nav-tabs > li > a {
+	color: #000000;
+}
+
+.nav-tabs.nav-justified > li > a {
+	border-bottom: 1px solid #5BC0DE;
+}
+
+.nav-tabs > li > a {
+	border: none;
+}
+
+.profile-title {
+	color: #000000;
+	font-size: 25px;
+	padding-top: 20px;	
+}
+
+.profile-location {
+	float: right;
+}
+
+.profile-flags {
+	float: right;
+}
+
+.profile-flags > img {
+	border: 1px solid #000000;
+	width: 45px;
+	height: 25px;
+}
+
+.profile-tabs > div > .nav-tabs.nav-justified {
+	margin-top: -42px;
+	padding-left: 155px;
+}
+
+.profile-description {
+	padding: 30px;
+	color: #000000;
+}
+
+.profile-garage {
+	padding: 30px;
+}
+
+.profile-comments {
+	margin-top: 50px;
+}
+
+.comment-section {
+	background: #ffffff;
+	height: auto;
+}
+
+.comment-title {
+	font-size: 25px;
+	color: #264C77;
+	padding-top: 20px;
+}
+
+.comment-stars {
+	padding-top: 10px;
+}
+
+.comment-stars > .rating-sm {
+	font-size: 2.2em;
+}
+
+.comment-stars > .star-rating {
+	float: right;
+}
+
+.comment-description {
+	padding-top: 20px;
+	color: #000000;
+}
+
+.comment-author {
+	padding: 20px 0 20px 0;
+}
+
+.comment-author > div > img {
+	border-radius: 40;
+	width: 70px;
+}
+
+.comment-rating-column {
+	padding: 10px 0 0 15px;
+}
+
+.comment-author-name {
+	color: #646464;
+}
+
+.profile-stars > .rating-sm {
+	font-size: 1.4em;
+	float: right;
+	margin-top: -5px;
+}
+
+.profile-description > ul > li > .switch-toggle {
+	margin-bottom: 10px; 
+}
+
+.btn-save-settings {
+	float: right;
+	margin-right: 15px;
+	width: 250px;
+}
+
+.profile-description > ul > li > div > .form-control {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	padding-left: 0px;
+}
+
+.avatar.small{
+	height: 30px;
+}
+
+.ui-select-choices.ui-select-choices-content.dropdown-menu.ng-scope > .ui-select-choices-group {
+	border: 1px solid #C3C3C3;
+}
+
+.profile-description > ul > li > div > .ui-select-container.form-control {
+	border: 1px solid #DCDCDC;
+}
+.style-1 input[type="text"]:focus, .style-1 input[type="text"].focus.ui-select-search {
+	border: none;
+	box-shadow: none;
+}
+
+.profile-languages > div > div{
+	margin-left: 15px;
+}
+
+.profile-languages > div > div > span.ui-select-match{
+	margin-left: -15px;
+}
+
+.profile-languages > div > div > span.ui-select-match > span{
+	margin-left: 15px;
+}
+
+.profile-age > div > input {
+	height: 43px;
+}
+
+.profile-car-block {
+	background: #F0F3F6;
+	color: #000000;
+	width: 100%;
+}
+
+.profile-car-block-image > img {
+	width: 100%;
+}
+
+.cars-block {
+	padding-top: 30px;
+	padding-bottom: 50px;
+}
+
+.profile-car-block-image {
+	padding-top: 15px;
+}
+
+.profile-car-block-info {
+	text-align: center;
+	padding-top: 15px;
+}
+
+.profile-car-block-filters {
+	text-align: center;
+	padding: 20px 0 20px 00px;
+}
+
+.profile-car-block-filters > img {
+	width: 40px;
+	margin-right: 15px;
+}
+
+.profile-add-car {
+	padding-top: 50px;
+	display: none;
+}
+
+.profile-add-car > div > ul {
+	padding-left: 0;
+}
+
+.profile-car-save {
+	padding: 30px 0 20px 20px;
+}
+
+.profile-add-car-filters {
+	padding-top: 30px;
+}
+
+p.bg-danger {
+	padding: 10px 0 10px 20px;
+	margin: 0 auto;
+	color: #ffffff;
+}
+
+p.bg-success {
+	padding: 10px 0 10px 20px;
+	margin: 0 auto;
+	color: #ffffff;
+}
+
+.addpost > ul > li > .post-errors > div  {
+	padding: 0;
+}
+
+.style-1 input[type="text"]:focus, .style-1 input[type="text"].focus.ui-select-search {
+	border: none!important;
+}
+
+.profile-offerbox {
+	border: 1px solid;
+	padding-top: 0px;
+	-moz-transition: linear 0.3s;
+	-ms-transition: linear 0.3s;
+	-o-transition: linear 0.3s;
+	transition: linear 0.3s;
+}
+
+.profile-offerbox:hover {
+	box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+	-webkit-transform: scale(1.025);
+  	transform: scale(1.025);
+  	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-property: box-shadow, transform;
+	transition-property: box-shadow, transform;
+}
+
+.profile-offers {
+	padding-bottom: 30px;
+	padding-left: 0px;
+	margin-top: 10px;
+}
+
+.profile-offers > .row {
+	margin-right: 35px;
+}
+
+.profile-offerbox-flags > img {
+	width: 20px;
+	border: 1px solid #3e3e3e;
+	margin-right: 5px;
+	margin-top: 5px;
+	height: 15px;
+}
+/*======== Profile Page =========END*/
+
+.offerbox {
+	-webkit-transition: linear 0.3s;
+	-moz-transition: linear 0.3s;
+	-ms-transition: linear 0.3s;
+	-o-transition: linear 0.3s;
+	transition: linear 0.3s;
+	padding-top: 30px;
+}
+
+.offerbox.ng-leave {
+	opacity: 1;
+}
+ 
+.offerbox.ng-leave-active {
+	opacity: 0;
+}
+
+.container.offer-results {
+	margin-top: 0px;
+}
+
+.profile-rating {
+	margin-top: 40px;
+}
+
+/*======== Animation FullSearch =========*/
+
+/*.headerSearch.ng-enter {
+  -webkit-animation: enter_animation 1s; 
+  animation: enter_animation 1s; 
+  padding-top: 120px;
+}
+
+.headerSearch.ng-leave {
+  -webkit-animation: leave_animation 1s; 
+  animation: leave_animation 1s;
+  padding-top: 0px;
+}
+
+@keyframes enter_animation {
+  from { padding-top: 120px; }
+  to { padding-top: 0; }
+}
+
+@-webkit-keyframes enter_animation {
+  from { padding-top: 120px; }
+  to { padding-top: 0; }
+}
+
+@keyframes leave_animation {
+  from { padding-top: 120px; }
+  to { padding-top: 0; }
+}
+
+@-webkit-keyframes leave_animation {
+  from { padding-top: 120px; }
+  to { padding-top: 0; }
+}*/
+
+/*======== Animation FullSearch =========END*/
+
+
+/*======== Search ===========*/
+.ui-select-choices.dropdown-menu {
+	background: #ffffff;
+}
+
+.btn-default.ui-select-toggle {
+	background: #ffffff;
+	border-left: solid 1px #dcdcdc;
+}
+
+.text-muted {
+	color: #BDBDBD;
+	float: left;
+}
+
+.form-control.ui-select-search.ng-pristine.ng-valid.ng-touched {
+	width: 100%;
+}
+
+.ui-select-match-text.pull-left > .ng-binding.ng-scope {
+	color: #3C3C3C;
+}
+
+.ui-select-multiple.ui-select-bootstrap {
+	width: 100%!important;
+	padding: 5px 5px 0 10px;
+	height: auto;
+}
+
+.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+	width: 40%!important;
+	height: 1.966666em;
+	margin-bottom: 5px;
+}
+
+
+/*======== Search ===========END*/
+
+
+/*======== Post Page =========*/
+
+.post-view {
+	background: #ffffff;	
+}
+
+.postview-zone {
+	padding-top: 20px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.postview-title {
+	font-size: 30px;
+	color: #264C77;
+	text-decoration: none;	
+}
+
+.postview-text-description {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	color: #6E6E6E;
+}
+
+.postview-user-info {
+	
+}
+
+.postview-user-info > div:nth-child(1) {
+	padding-left: 0px;
+}
+
+.postview-user-photo > img {
+	border-radius: 40;
+	width: 80px;
+}
+
+.postview-author-name {
+	font-size: 18px;
+	color: #646464;
+}
+
+.postview-rating-column {
+	padding-top: 10px;
+}
+
+.postview-flags {
+	float: right;
+	padding-top: 20px;
+}
+
+.postview-flags > img {
+	border: 1px solid #000000;
+	width: 45px;
+	height: 25px;
+}
+
+.postview-price-and-filters > div {
+	margin-left: 35px;	
+}
+
+.postview-price-and-filters > img{
+	width: 30px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.postview-price-and-filters > img:nth-child(1){
+	/*margin-left: 110px;*/
+}
+
+.price-text {
+	height: 45px;
+	padding: 4px 20px 4px 20px;
+	font-size: 25px;
+	color: green;
+	float: right;
+	background: rgba(0,0,0,0.032);
+}
+
+.postview-from-to {
+	color: #8195AB;
+	font-size: 17px;
+	padding-top: 10px;
+	padding-bottom: 0px;
+}
+/*======== Post Page =========END*/
+
+/*======== Calendar =========*/
+
+
+.bootstrap-datetimepicker-widget td.day:hover, 
+.bootstrap-datetimepicker-widget td.hour:hover, 
+.bootstrap-datetimepicker-widget td.minute:hover, 
+.bootstrap-datetimepicker-widget td.second:hover,
+.bootstrap-datetimepicker-widget td span:hover,
+.bootstrap-datetimepicker-widget thead tr:first-child th:hover {
+	background: #5E9DD3;
+}
+
+/*======== Calendar =========END*/
+
+.search-cities > .city-from-input {
+	padding: 0px;
+}
+
+.search-cities > .city-to-input {
+	padding: 0px;
+}
+
+
+/*======== Footer ========*/
+.footer {
+	background: #264C77;
+	height: 100px;
+	width: 100%;
+}
+/*======== Footer ========END*/
+
+/*======== Google Maps =========*/
+
+.angular-google-map-container {
+	height: 400px;
+}
+
+.postview-map {
+	padding-bottom: 15px;
+}
+
+/*======== Google Maps =========END*/
+
+
+
+
+
